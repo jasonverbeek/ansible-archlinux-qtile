@@ -27,7 +27,7 @@
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Screen
+from libqtile.config import Click, Drag, Group, Key, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -38,21 +38,6 @@ mod = "mod4"
 terminal = guess_terminal()
 
 keys = [
-    # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down(),
-        desc="Move focus down in stack pane"),
-    Key([mod], "j", lazy.layout.up(),
-        desc="Move focus up in stack pane"),
-
-    # Move windows up or down in current stack
-    Key([mod, "control"], "k", lazy.layout.shuffle_down(),
-        desc="Move window down in current stack "),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up(),
-        desc="Move window up in current stack "),
-
-    #r Rofi
-    Key([mod], "d", lazy.spawn("rofi -show run")),
-    Key([mod], "s", lazy.spawn("rofi -show ssh")),
 
     # Switch window focus to other pane(s) of stack
     Key([mod], "space", lazy.layout.next(),
@@ -76,9 +61,36 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
+
+    # ========== CUSTOM ==========
+    # float mode
+    Key([mod], "f", lazy.window.toggle_float()),
+
+    # Rofi
+    Key([mod], "d", lazy.spawn("rofi -show run")),
+    Key([mod], "s", lazy.spawn("rofi -show ssh")),
+
+
+    # Switch between windows in current stack pane
+    Key([mod], "Right", lazy.layout.down(),
+        desc="Move focus down in stack pane"),
+    Key([mod], "Left", lazy.layout.up(),
+        desc="Move focus up in stack pane"),
+
+    # Move windows up or down in current stack
+    Key([mod, "control"], "Right", lazy.layout.shuffle_down(),
+        desc="Move window down in current stack "),
+    Key([mod, "control"], "Left", lazy.layout.shuffle_up(),
+        desc="Move window up in current stack "),
+
+    # Quake like terminal
+    Key([mod], "t", lazy.group["quake"].dropdown_toggle("term")),
 ]
 
 groups = [Group(i) for i in "1234567890"]
+groups.append(ScratchPad("quake", [
+    DropDown("term", terminal, opacity=0.5)
+])
 
 for i in groups:
     keys.extend([
@@ -97,14 +109,14 @@ for i in groups:
 
 layouts = [
     layout.Max(),
-    layout.Stack(num_stacks=2),
+    # layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
     # layout.Columns(),
     # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
+    layout.MonadTall(),
+    layout.MonadWide(),
+    layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
