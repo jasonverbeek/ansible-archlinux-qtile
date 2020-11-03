@@ -33,6 +33,18 @@
     pacman:
       name: fish
       state: latest
+  - name: latest man
+    become: yes
+    become_user: root
+    pacman:
+      name: man
+      state: latest
+  - name: latest man-db
+    become: yes
+    become_user: root
+    pacman:
+      name: man-db
+      state: latest
   - name: latest archlinux-wallpaper
     become: yes
     become_user: root
