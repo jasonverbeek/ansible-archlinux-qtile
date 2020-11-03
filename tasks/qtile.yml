@@ -1,0 +1,21 @@
+---
+- name: Configuring QTile
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Ensure qtile config dir
+    file:
+      path: ~/.config/qtile
+      state: directory
+
+  - name: QTile autostart
+    template:
+      src: templates/qtile/autorun.sh
+      dest: ~/.config/qtile/autorun.sh
+      mode: u+rwx
+
+  - name: QTile config
+    template:
+      src: templates/qtile/config.py
+      dest: ~/.config/qtile/config.py

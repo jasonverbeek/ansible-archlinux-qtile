@@ -9,42 +9,49 @@
     become_user: root
     pacman:
       update_cache: yes
+
   - name: latest nitrogen
     become: yes
     become_user: root
     pacman:
       name: nitrogen
       state: latest
+
   - name: latest rofi
     become: yes
     become_user: root
     pacman:
       name: rofi
       state: latest
+
   - name: latest autorandr
     become: yes
     become_user: root
     pacman:
       name: autorandr
       state: latest
+
   - name: latest fish
     become: yes
     become_user: root
     pacman:
       name: fish
       state: latest
+
   - name: latest man
     become: yes
     become_user: root
     pacman:
       name: man
       state: latest
+
   - name: latest man-db
     become: yes
     become_user: root
     pacman:
       name: man-db
       state: latest
+
   - name: latest archlinux-wallpaper
     become: yes
     become_user: root
