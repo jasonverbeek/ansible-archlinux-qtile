@@ -1,0 +1,11 @@
+---
+- name: Ensure picom config dir
+  file:
+    path: ~/.config/picom
+    state: directory
+
+
+- name: QTile config
+  template:
+    src: templates/picom/picom.conf
+    dest: ~/.config/picom/picom.conf

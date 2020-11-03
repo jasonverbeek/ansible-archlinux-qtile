@@ -37,3 +37,8 @@
   pacman:
     name: archlinux-wallpaper
     state: latest
+
+- name: latest picom
+  pacman:
+    name: picom
+    state: latest
