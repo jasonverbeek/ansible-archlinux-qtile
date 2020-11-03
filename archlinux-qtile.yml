@@ -78,4 +78,7 @@
     template:
       src: templates/nitrogen/bg-saved.cfg
       dest: ~/.config/nitrogen/bg-saved.cfg
-
+  - name: X11 Automatic resolution restoration
+    template:
+      src: templates/X11/.xprofile
+      dest: ~/.xprofile
