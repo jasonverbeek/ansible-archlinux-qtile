@@ -8,4 +8,5 @@
   - import_tasks: tasks/qtile.yml
   - import_tasks: tasks/nitrogen.yml
   - import_tasks: tasks/x11.yml
+  - import_tasks: tasks/picom.yml
 
