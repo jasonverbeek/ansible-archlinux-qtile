@@ -4,6 +4,11 @@
   connection: local
 
   tasks:
+  - name: synchronize pacman
+    become: yes
+    become_user: root
+    pacman:
+      update_cache: yes
   - name: latest nitrogen
     become: yes
     become_user: root
@@ -61,7 +66,4 @@
     template:
       src: templates/nitrogen/bg-saved.cfg
       dest: ~/.config/nitrogen/bg-saved.cfg
-
-  - name: quit qtile
-    shell: ps x | grep "qtile" | head -n1 | awk '{print $1}' | xargs kill
 
