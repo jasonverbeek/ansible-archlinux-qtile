@@ -3,10 +3,9 @@
   hosts: localhost
   connection: local
   tasks:
-    name: Requirements
+  - import_tasks: tasks/requirements.yml
     become: yes
-      - include_tasks: tasks/requirements.yml
-    - include_tasks: tasks/qtile.yml
-    - include_tasks: tasks/nitrogen.yml
-    - include_tasks: tasks/x11.yml
+  - import_tasks: tasks/qtile.yml
+  - import_tasks: tasks/nitrogen.yml
+  - import_tasks: tasks/x11.yml
 
