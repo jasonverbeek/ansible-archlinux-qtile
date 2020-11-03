@@ -1,22 +1,16 @@
-
 ---
-- name: Configuring Nitrogen
-  hosts: localhost
-  connection: local
+- name: Ensure nitrogen config dir
+  file:
+    path: ~/.config/nitrogen
+    state: directory
 
-  tasks:
-  - name: Ensure nitrogen config dir
-    file:
-      path: ~/.config/nitrogen
-      state: directory
+- name: nitrogen configuration
+  template:
+    src: templates/nitrogen/nitrogen.cfg
+    dest: ~/.config/nitrogen/nitrogen.cfg
 
-  - name: nitrogen configuration
-    template:
-      src: templates/nitrogen/nitrogen.cfg
-      dest: ~/.config/nitrogen/nitrogen.cfg
-
-  - name: nitrogen current wallpaper configuration
-    template:
-      src: templates/nitrogen/bg-saved.cfg
-      dest: ~/.config/nitrogen/bg-saved.cfg
+- name: nitrogen current wallpaper configuration
+  template:
+    src: templates/nitrogen/bg-saved.cfg
+    dest: ~/.config/nitrogen/bg-saved.cfg
 

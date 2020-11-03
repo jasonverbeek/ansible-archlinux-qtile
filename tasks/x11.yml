@@ -1,11 +1,6 @@
 
 ---
-- name: installing requirements
-  hosts: localhost
-  connection: local
-
-  tasks:
-  - name: X11 Automatic resolution restoration
-    template:
-      src: templates/X11/.xprofile
-      dest: ~/.xprofile
+- name: X11 Automatic resolution restoration
+  template:
+    src: templates/X11/.xprofile
+    dest: ~/.xprofile
