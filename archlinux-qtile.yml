@@ -16,6 +16,18 @@
     pacman:
       name: rofi
       state: latest
+  - name: latest autorandr
+    become: yes
+    become_user: root
+    pacman:
+      name: autorandr
+      state: latest
+  - name: latest fish
+    become: yes
+    become_user: root
+    pacman:
+      name: fish
+      state: latest
   - name: latest archlinux-wallpaper
     become: yes
     become_user: root
