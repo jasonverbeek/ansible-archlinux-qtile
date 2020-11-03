@@ -51,34 +51,3 @@
     pacman:
       name: archlinux-wallpaper
       state: latest
-
-  - name: Ensure qtile config dir
-    file:
-      path: ~/.config/qtile
-      state: directory
-  - name: Ensure nitrogen config dir
-    file:
-      path: ~/.config/nitrogen
-      state: directory
-
-  - name: qtile config
-    template:
-      src: templates/qtile/config.py
-      dest: ~/.config/qtile/config.py
-  - name: qtile autostart
-    template:
-      src: templates/qtile/autorun.sh
-      dest: ~/.config/qtile/autorun.sh
-      mode: u+rwx
-  - name: nitrogen configuration
-    template:
-      src: templates/nitrogen/nitrogen.cfg
-      dest: ~/.config/nitrogen/nitrogen.cfg
-  - name: nitrogen current wallpaper configuration
-    template:
-      src: templates/nitrogen/bg-saved.cfg
-      dest: ~/.config/nitrogen/bg-saved.cfg
-  - name: X11 Automatic resolution restoration
-    template:
-      src: templates/X11/.xprofile
-      dest: ~/.xprofile
