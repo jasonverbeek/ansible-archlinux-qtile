@@ -145,9 +145,11 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.TextBox("archlinux-qtile", name="default"),
+                widget.TextBox("TERM", name="default", mouse_callbacks={
+                    'Button1': lambda qtile: qtile.cmd_spawn(terminal)
+                }),
                 widget.Systray(),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
             ],
             24,
         ),
