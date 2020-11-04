@@ -42,3 +42,23 @@
   pacman:
     name: picom
     state: latest
+
+- name: latest unclutter
+  pacman:
+    name: unclutter
+    state: latest
+
+- name: latest ttf-hack
+  pacman:
+    name: ttf-hack
+    state: latest
+
+- name: latest exa
+  pacman:
+    name: exa
+    state: latest
+
+# - name: latest dunst
+#   pacman:
+#     name: dunst
+#     state: latest
