@@ -1,6 +1,6 @@
 
 ---
-- name ensure autorandr folder
+- name: ensure autorandr folder
   file:
     path: ~/.config/autorandr
     state: directory
