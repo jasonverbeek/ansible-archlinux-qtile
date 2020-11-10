@@ -88,9 +88,6 @@ keys = [
 ]
 
 groups = [Group(i) for i in "1234567890"]
-groups.append(ScratchPad("quake", [
-    DropDown("term", terminal, opacity=0.5)
-]))
 
 for i in groups:
     keys.extend([
@@ -106,6 +103,10 @@ for i in groups:
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
         #     desc="move focused window to group {}".format(i.name)),
     ])
+
+groups.append(ScratchPad("quake", [
+    DropDown("term", terminal, opacity=0.5)
+]))
 
 layouts = [
     layout.Max(),

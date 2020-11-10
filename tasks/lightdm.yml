@@ -1,0 +1,5 @@
+---
+- name: LightDM config
+  template:
+    src: templates/lightdm/lightdm-gtk-greeter.conf
+    dest: /etc/lightdm/lightdm-gtk-greeter.conf
