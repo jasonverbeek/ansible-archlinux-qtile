@@ -4,3 +4,11 @@
   template:
     src: templates/X11/.xprofile
     dest: ~/.xprofile
+
+- name: X11 Automatic resolution restoration
+  become: yes
+  template:
+    src: templates/X11/.xprofile
+    dest: /root/.xprofile
+    owner: root
+    group: root

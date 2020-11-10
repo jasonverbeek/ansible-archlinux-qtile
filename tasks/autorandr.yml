@@ -1,0 +1,13 @@
+
+---
+- name ensure autorandr folder
+  file:
+    path: ~/.config/autorandr
+    state: directory
+
+- name: symlink resolution settings to root
+  become: yes
+  file:
+    src: /home/*/.config/autorandr
+    dest: /root/.config/autorandr
+    state: link

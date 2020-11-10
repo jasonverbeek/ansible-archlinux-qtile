@@ -7,6 +7,7 @@
     become: yes
   - import_tasks: tasks/lightdm.yml
     become: yes
+  - import_tasks: tasks/autorandr.xml
   - import_tasks: tasks/qtile.yml
   - import_tasks: tasks/nitrogen.yml
   - import_tasks: tasks/x11.yml
